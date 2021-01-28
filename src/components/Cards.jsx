@@ -1,6 +1,6 @@
-import CardColumns from 'react-bootstrap/CardColumns';
-import Card from 'react-bootstrap/Card';
-import { Link } from 'react-router-dom';
+import CardColumns from "react-bootstrap/CardColumns";
+import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 
 function Cards(props) {
   return (

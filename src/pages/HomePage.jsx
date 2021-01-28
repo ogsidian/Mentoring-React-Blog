@@ -1,6 +1,7 @@
-import React from 'react';
-import NavBar from '../components/NavBar';
-import Cards from '../components/Cards';
+import React from "react";
+import NavBar from "../components/NavBar";
+import Cards from "../components/Cards";
+import FullPostPage from "./FullPostPage";
 
 function HomePage() {
   const [cardData, setCardData] = React.useState([]);
@@ -14,8 +15,14 @@ function HomePage() {
     <>
       <NavBar />
       {cardData.map((obj) => (
-        <Cards title={obj.title} image={obj.image} text={obj.text} id={obj.id} />
+        <Cards
+          title={obj.title}
+          image={obj.image}
+          text={obj.text}
+          id={obj.id}
+        />
       ))}
+      <Cards />
     </>
   );
 }

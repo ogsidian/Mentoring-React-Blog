@@ -11,7 +11,7 @@ function NavBar() {
       <Navbar bg="primary" variant="dark">
         <Navbar.Brand href="/">Medium на стероидах</Navbar.Brand>
         <Nav className="mr-auto">
-          <Link to="/">Home</Link>
+          <Link to="/home">Home</Link>
           <Link to="/about">About me</Link>
         </Nav>
         <Form inline>
