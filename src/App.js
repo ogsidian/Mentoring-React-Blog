@@ -2,7 +2,6 @@ import React from "react";
 import AboutPage from "./pages/AboutPage";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import Cards from "./components/Cards";
 import FullPostPage from "./pages/FullPostPage";
 import HomePage from "./pages/HomePage";
 

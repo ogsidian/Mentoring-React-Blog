@@ -16,7 +16,8 @@ function NavBar() {
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-light">Search</Button>
+          <Button variant="outline-light">Поиск</Button>
+          <Button variant="outline-light" className="ml-2">Добавить статью</Button>
         </Form>
       </Navbar>
     </>

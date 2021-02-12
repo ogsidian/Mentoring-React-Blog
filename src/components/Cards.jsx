@@ -1,16 +1,16 @@
-import CardColumns from "react-bootstrap/CardColumns";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import {Container} from "react-bootstrap";
 
 function Cards(props) {
   return (
-    <div>
-      <CardColumns className="mt-4">
-        <Card>
+      <Container>
+
+        <Card className="mt-4">
           <Card.Img variant="top" src={props.image} />
           <Card.Body>
             <Card.Title>
-              <Link to={`/post/${props.id}`}>{props.title}</Link>
+              <Link to={`/articles/${props.id}`}>{props.title}</Link>
             </Card.Title>
             <Card.Text>{props.text}</Card.Text>
           </Card.Body>
@@ -18,8 +18,7 @@ function Cards(props) {
             <small className="text-muted">{props.data}</small>
           </Card.Footer>
         </Card>
-      </CardColumns>
-    </div>
+      </Container>
   );
 }
 

@@ -12,7 +12,7 @@ function FullPostPage(props) {
   React.useEffect(() => {
     async function fetchPost() {
       const { data } = await axios.get(
-        "https://5c3755177820ff0014d92711.mockapi.io/posts/" + postid
+        "https://5c3755177820ff0014d92711.mockapi.io/articles/" + postid
       );
       setPost(data);
     }
@@ -27,13 +27,13 @@ function FullPostPage(props) {
       <NavBar />
       <a href="/">
         <br />
-        <Button>НАЗАД!</Button>
+        <Button>Вернуться</Button>
       </a>
       <Card>
         <Card.Img variant="top" src={post.image} />
         <Card.Body>
           <Card.Title>
-            <Link to={`/post/${props.match.params.id}`}>{post.title}</Link>
+            <Link to={`/articles/${props.match.params.id}`}>{post.title}</Link>
           </Card.Title>
           <Card.Text>{post.text}</Card.Text>
         </Card.Body>
