@@ -9,7 +9,6 @@ function HomePage() {
     fetch(`https://5c3755177820ff0014d92711.mockapi.io/articles`)
       .then((res) => res.json())
       .then((json) => setCardData(json));
-    console.log(cardData)
   });
 
   return (
