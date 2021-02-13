@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import Cards from "../components/Cards";
-import {CardColumns} from "react-bootstrap";
+import { CardColumns } from "react-bootstrap";
 
 function HomePage() {
   const [cardData, setCardData] = React.useState([]);
@@ -15,15 +15,15 @@ function HomePage() {
     <>
       <NavBar />
       <CardColumns>
-      {cardData.map((obj) => (
-        <Cards
-          title={obj.title}
-          image={obj.image}
-          text={obj.text}
-          id={obj.id}
-        />
-      ))}
-      <Cards />
+        {cardData.map((obj) => (
+          <Cards
+            title={obj.title}
+            image={obj.image}
+            text={obj.text}
+            id={obj.id}
+          />
+        ))}
+        <Cards />
       </CardColumns>
     </>
   );

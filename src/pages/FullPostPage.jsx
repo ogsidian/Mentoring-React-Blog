@@ -25,10 +25,7 @@ function FullPostPage(props) {
   return (
     <>
       <NavBar />
-      <a href="/">
-        <br />
-        <Button>Вернуться</Button>
-      </a>
+
       <Card>
         <Card.Img variant="top" src={post.image} />
         <Card.Body>
@@ -39,6 +36,9 @@ function FullPostPage(props) {
         </Card.Body>
         <Card.Footer>
           <small className="text-muted">{post.data}</small>
+          <a href="/">
+            <Button className="mb-2">Вернуться</Button>
+          </a>
         </Card.Footer>
       </Card>
     </>
