@@ -2,17 +2,18 @@ import { Modal } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React from "react";
+import { stateContext } from "./NavBar";
 
 function AddArticleModal({ show, modalClose, onAddArticle }) {
+  const value = React.useContext(stateContext);
   const [data, setData] = React.useState({
     title: "",
     text: "",
     image: "",
   });
-
+  console.log(data);
   const changeInput = (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
     setData({
       ...data,
       [name]: value,

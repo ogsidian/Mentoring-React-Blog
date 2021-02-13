@@ -4,12 +4,13 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import React, { useReducer } from "react";
+import React from "react";
 import AddArticleModal from "./AddArticleModal";
 import axios from "axios";
+import Cards from "./Cards";
+import { CardColumns } from "react-bootstrap";
 
-const stateContext = React.createContext();
-console.log(stateContext);
+export const stateContext = React.createContext();
 
 const initialState = {
   visibleModal: false,
@@ -22,7 +23,6 @@ const response = axios.post(
 );
 
 function reducer(state, action) {
-  console.log(state, action);
   switch (action.type) {
     case "OPEN_MODAL":
       return {
@@ -89,13 +89,20 @@ function NavBar() {
           <Button variant="outline-light" className="ml-2" onClick={modalOpen}>
             Добавить статью
           </Button>
-          <AddArticleModal
-            show={state.visibleModal}
-            modalClose={modalClose}
-            onAddArticle={onAddArticle}
-          />
+          <stateContext.Provider value={"hello"}>
+            <AddArticleModal
+              show={state.visibleModal}
+              modalClose={modalClose}
+              onAddArticle={onAddArticle}
+            />
+          </stateContext.Provider>
         </Form>
       </Navbar>
+      <CardColumns>
+        {state.article.map((obj) => (
+          <Cards title={obj.title} text={obj.text} image={obj.image} />
+        ))}
+      </CardColumns>
     </>
   );
 }
