@@ -9,18 +9,17 @@ import AddArticleModal from "./AddArticleModal";
 import axios from "axios";
 import Cards from "./Cards";
 import { CardColumns } from "react-bootstrap";
-
-export const stateContext = React.createContext();
+import { stateContext } from "./AddArticleModal";
 
 const initialState = {
   visibleModal: false,
   article: [],
 };
 
-const response = axios.post(
-  `https://5c3755177820ff0014d92711.mockapi.io/articles`,
-  initialState.article
-);
+// const response = axios.post(
+//   `https://5c3755177820ff0014d92711.mockapi.io/articles`,
+//   initialState.article
+// );
 
 function reducer(state, action) {
   switch (action.type) {
@@ -54,6 +53,8 @@ function reducer(state, action) {
 }
 
 function NavBar() {
+  const value = React.useContext(stateContext);
+  console.log(value);
   const [state, dispatch] = React.useReducer(reducer, initialState);
   const modalClose = () => {
     dispatch({
@@ -89,13 +90,11 @@ function NavBar() {
           <Button variant="outline-light" className="ml-2" onClick={modalOpen}>
             Добавить статью
           </Button>
-          <stateContext.Provider value={"hello"}>
-            <AddArticleModal
-              show={state.visibleModal}
-              modalClose={modalClose}
-              onAddArticle={onAddArticle}
-            />
-          </stateContext.Provider>
+          <AddArticleModal
+            show={state.visibleModal}
+            modalClose={modalClose}
+            onAddArticle={onAddArticle}
+          />
         </Form>
       </Navbar>
       <CardColumns>
