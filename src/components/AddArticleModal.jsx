@@ -3,10 +3,10 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React, { useContext } from "react";
 import dataContext from "../context";
+import axios from "axios";
 
 function AddArticleModal({ show, modalClose, onAddArticle }) {
   const { data, setData } = useContext(dataContext);
-  console.log(data);
   const changeInput = (event) => {
     const { name, value } = event.target;
     setData({
@@ -18,6 +18,7 @@ function AddArticleModal({ show, modalClose, onAddArticle }) {
   const onClickAdd = () => {
     if (onAddArticle) {
       onAddArticle(data);
+      axios.post("https://5c3755177820ff0014d92711.mockapi.io/articles", data);
     }
   };
   return (

@@ -16,11 +16,6 @@ const initialState = {
   article: [],
 };
 
-// const response = axios.post(
-//   `https://5c3755177820ff0014d92711.mockapi.io/articles`,
-//   initialState.article
-// );
-
 function NavBar() {
   function reducer(state, action) {
     switch (action.type) {
@@ -42,9 +37,8 @@ function NavBar() {
             {
               id: Math.random().toString(36).substr(2, 6),
               title: data.title,
-              text: "hello",
-              image:
-                "https://miro.medium.com/max/638/1*5xibjPegHeQ1VXpqKUT_Pg.jpeg",
+              text: data.text,
+              image: data.image,
             },
           ],
         };
@@ -55,7 +49,6 @@ function NavBar() {
 
   const { data, setData } = React.useContext(dataContext);
   const [state, dispatch] = React.useReducer(reducer, initialState);
-  console.log(data);
   const modalClose = () => {
     dispatch({
       type: "CLOSE_MODAL",

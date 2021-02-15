@@ -8,8 +8,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function Main() {
   const [data, setData] = React.useState({
     title: "",
-    text: "",
     image: "",
+    text: "",
   });
 
   return (
