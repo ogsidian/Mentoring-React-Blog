@@ -17,6 +17,9 @@ const initialState = {
 };
 
 function NavBar() {
+  const { data, setData } = React.useContext(dataContext);
+  const [state, dispatch] = React.useReducer(reducer, initialState);
+
   function reducer(state, action) {
     switch (action.type) {
       case "OPEN_MODAL":
@@ -47,8 +50,6 @@ function NavBar() {
     }
   }
 
-  const { data, setData } = React.useContext(dataContext);
-  const [state, dispatch] = React.useReducer(reducer, initialState);
   const modalClose = () => {
     dispatch({
       type: "CLOSE_MODAL",

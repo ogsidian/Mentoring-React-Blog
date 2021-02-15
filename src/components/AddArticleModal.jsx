@@ -18,7 +18,11 @@ function AddArticleModal({ show, modalClose, onAddArticle }) {
   const onClickAdd = () => {
     if (onAddArticle) {
       onAddArticle(data);
-      axios.post("https://5c3755177820ff0014d92711.mockapi.io/articles", data);
+      axios.post("https://5c3755177820ff0014d92711.mockapi.io/articles", {
+        title: data.title,
+        image: data.image,
+        text: data.text,
+      });
     }
   };
   return (
