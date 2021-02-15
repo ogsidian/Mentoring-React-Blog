@@ -4,12 +4,12 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useContext } from "react";
 import AddArticleModal from "./AddArticleModal";
 import axios from "axios";
 import Cards from "./Cards";
 import { CardColumns } from "react-bootstrap";
-import { stateContext } from "./AddArticleModal";
+import dataContext from "../context";
 
 const initialState = {
   visibleModal: false,
@@ -21,41 +21,41 @@ const initialState = {
 //   initialState.article
 // );
 
-function reducer(state, action) {
-  switch (action.type) {
-    case "OPEN_MODAL":
-      return {
-        ...state,
-        visibleModal: true,
-      };
-    case "CLOSE_MODAL":
-      return {
-        ...state,
-        visibleModal: false,
-      };
-    case "ADD_ARTICLE":
-      return {
-        ...state,
-        article: [
-          ...state.article,
-          {
-            id: Math.random().toString(36).substr(2, 6),
-            title: "hello",
-            text: "hello",
-            image:
-              "https://miro.medium.com/max/638/1*5xibjPegHeQ1VXpqKUT_Pg.jpeg",
-          },
-        ],
-      };
-    default:
-      return state;
-  }
-}
-
 function NavBar() {
-  const value = React.useContext(stateContext);
-  console.log(value);
+  function reducer(state, action) {
+    switch (action.type) {
+      case "OPEN_MODAL":
+        return {
+          ...state,
+          visibleModal: true,
+        };
+      case "CLOSE_MODAL":
+        return {
+          ...state,
+          visibleModal: false,
+        };
+      case "ADD_ARTICLE":
+        return {
+          ...state,
+          article: [
+            ...state.article,
+            {
+              id: Math.random().toString(36).substr(2, 6),
+              title: data.title,
+              text: "hello",
+              image:
+                "https://miro.medium.com/max/638/1*5xibjPegHeQ1VXpqKUT_Pg.jpeg",
+            },
+          ],
+        };
+      default:
+        return state;
+    }
+  }
+
+  const { data, setData } = React.useContext(dataContext);
   const [state, dispatch] = React.useReducer(reducer, initialState);
+  console.log(data);
   const modalClose = () => {
     dispatch({
       type: "CLOSE_MODAL",
